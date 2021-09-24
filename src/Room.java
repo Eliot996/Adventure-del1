@@ -73,7 +73,26 @@ public class Room {
         this.description = description;
     }
 
-    public boolean check(){
-        return false;
+    public boolean check(String userInput){
+        switch(userInput) {
+            case "north":
+                if (north != null)
+                    return true;
+
+            case "south":
+                if (south != null)
+                    return true;
+
+            case "east":
+                if (east != null)
+                    return true;
+
+            case "west":
+                if (west != null)
+                    return true;
+
+            default:
+                return false;
+        }
     }
 }
