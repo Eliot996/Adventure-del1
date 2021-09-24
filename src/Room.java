@@ -40,8 +40,6 @@ public class Room {
             this.north = north;
             north.setSouth(this);
         }
-
-
     }
 
     public void setSouth(Room south) {
@@ -76,23 +74,29 @@ public class Room {
     public boolean check(String userInput){
         switch(userInput) {
             case "north":
-                if (north != null)
+                if (north != null) {
                     return true;
+                }
+                break;
 
             case "south":
-                if (south != null)
+                if (south != null){
                     return true;
+                }
+                break;
 
             case "east":
-                if (east != null)
+                if (east != null) {
                     return true;
+                }
+                break;
 
             case "west":
-                if (west != null)
+                if (west != null) {
                     return true;
-
-            default:
-                return false;
+                }
+                break;
         }
+        return false;
     }
 }

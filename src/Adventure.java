@@ -24,19 +24,20 @@ public class Adventure {
 
         map[0].setEast(map[1]);
         map[0].setSouth(map[3]);
+
         map[1].setEast(map[2]);
         map[2].setSouth(map[5]);
+
         map[5].setSouth(map[8]);
-        map[8].setWest(map[8]);
+        map[6].setNorth(map[3]);
+
         map[7].setWest(map[6]);
         map[7].setNorth(map[4]);
-        map[6].setNorth(map[3]);
+        map[8].setWest(map[7]);
     }
 
     public void play(){
         currentRoom = map[0];
-
-        System.out.println(currentRoom.check("east"));
 
         boolean gameActive = true;
         while(gameActive){
@@ -45,9 +46,11 @@ public class Adventure {
                 userInput = userInput.substring(3);
                 System.out.println(goTo(userInput));
             }
+
             if(userInput.contains("exit")){
                 gameActive = false;
             }
+
             if(userInput.contains("look")){
                 System.out.println(look());
 
@@ -62,18 +65,21 @@ public class Adventure {
     public String goTo(String userInput){
         if (userInput.equals("north") && currentRoom.check(userInput)){
             currentRoom = currentRoom.getNorth();
+            return currentRoom.getName();
         }
         if(userInput.equals("south") && currentRoom.check(userInput)){
             currentRoom = currentRoom.getSouth();
+            return currentRoom.getName();
         }
         if(userInput.equals("east") && currentRoom.check(userInput)){
             currentRoom = currentRoom.getEast();
+            return currentRoom.getName();
         }
         if(userInput.equals("west") && currentRoom.check(userInput)){
             currentRoom = currentRoom.getWest();
+            return currentRoom.getName();
         }
-
-        return currentRoom.getName();
+        return "You cannot go that direction in this room";
     }
 
     public String helpPlayer(){
@@ -85,8 +91,5 @@ public class Adventure {
         Adventure game = new Adventure();
         game.play();
 
-
     }
-
-
 }
