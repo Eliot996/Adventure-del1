@@ -1,4 +1,8 @@
 public class Adventure {
+
+    private Room[] map;
+    private Room currentRoom;
+
     public static void main(String[] args) {
         Room room1 = new Room("room1", "empty");
         Room room2 = new Room("room2", "empty");
@@ -8,4 +12,6 @@ public class Adventure {
         currentRoom = room2;
         System.out.println(currentRoom.getName());
     }
+
+
 }
