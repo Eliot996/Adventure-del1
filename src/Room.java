@@ -1,4 +1,5 @@
 public class Room {
+
     private Room north;
     private Room south;
     private Room west;
