@@ -17,6 +17,7 @@ public class Adventure {
 
         boolean gameActive = true;
         System.out.println("Welcome to the adventure game!");
+        System.out.println("You are curretly in " + player.getCurrentRoom().getDescription());
         System.out.println("Which direction would you like to go?");
 
         while(gameActive){
@@ -28,7 +29,7 @@ public class Adventure {
 
             if(userInput.contains("exit")){
                 System.out.println("Leaving already? :(");
-                System.out.println("Hopefully we'll see each other again :)");
+                System.out.println("Hopefully we'll see each other again :) ");
                 gameActive = false;
             }
 
@@ -58,27 +59,6 @@ public class Adventure {
                 I wish you the best of luck!
                """;
     }
-
-    public String goTo(String userInput){
-        if (userInput.equals("north") && player.getCurrentRoom().hasNorth()){
-            player.setCurrentRoom(player.getCurrentRoom().getNorth());
-            return player.getCurrentRoom().getDescription();
-        }
-        if(userInput.equals("south") && player.getCurrentRoom().hasSouth()){
-            player.setCurrentRoom(player.getCurrentRoom().getSouth());
-            return player.getCurrentRoom().getDescription();
-        }
-        if(userInput.equals("east") && player.getCurrentRoom().hasEast()){
-            player.setCurrentRoom(player.getCurrentRoom().getEast());
-            return player.getCurrentRoom().getDescription();
-        }
-        if(userInput.equals("west") && player.getCurrentRoom().hasWest()){
-            player.setCurrentRoom(player.getCurrentRoom().getWest());
-            return player.getCurrentRoom().getDescription();
-        }
-        return "You cannot go that direction in this room";
-    }
-
 
     public static void main(String[] args) {
 
