@@ -6,6 +6,7 @@ public class Room {
     private Room west;
     private String name;
     private String description;
+    private boolean hasBeenvisited;
 
     public Room(String name, String description){
         this.name = name;
@@ -33,7 +34,14 @@ public class Room {
     }
 
     public String getDescription() {
-        return description;
+        StringBuilder returnString = new StringBuilder(name + "\n");
+
+        if (!hasBeenvisited){
+            returnString.append(description + "\n");
+            hasBeenvisited = true;
+        }
+
+        return returnString.toString();
     }
 
     public void setNorth(Room north) {

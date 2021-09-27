@@ -52,6 +52,7 @@ public class Adventure {
         boolean gameActive = true;
         System.out.println("Welcome to the adventure game!");
         System.out.println("Which direction would you like to go?");
+
         while(gameActive){
             String userInput = input.nextLine();
             if(userInput.contains("go ")){ //TODO: change, bug potential. use substring.contains?
@@ -67,13 +68,9 @@ public class Adventure {
 
             if(userInput.contains("look")){
                 System.out.println(look());
-
             }
 
             if(userInput.contains("help")){
-                System.out.println(helpPlayer());
-            }
-            if(userInput.contains(("help"))){
                 System.out.println(helpPlayer());
             }
         }
@@ -99,19 +96,19 @@ public class Adventure {
     public String goTo(String userInput){
         if (userInput.equals("north") && currentRoom.hasNorth()){
             currentRoom = currentRoom.getNorth();
-            return currentRoom.getName();
+            return currentRoom.getDescription();
         }
         if(userInput.equals("south") && currentRoom.hasSouth()){
             currentRoom = currentRoom.getSouth();
-            return currentRoom.getName();
+            return currentRoom.getDescription();
         }
         if(userInput.equals("east") && currentRoom.hasEast()){
             currentRoom = currentRoom.getEast();
-            return currentRoom.getName();
+            return currentRoom.getDescription();
         }
         if(userInput.equals("west") && currentRoom.hasWest()){
             currentRoom = currentRoom.getWest();
-            return currentRoom.getName();
+            return currentRoom.getDescription();
         }
         return "You cannot go that direction in this room";
     }
