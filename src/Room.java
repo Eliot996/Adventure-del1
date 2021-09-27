@@ -37,7 +37,7 @@ public class Room {
         StringBuilder returnString = new StringBuilder(name + "\n");
 
         if (!hasBeenvisited){
-            returnString.append(description + "\n");
+            returnString.append(description).append("\n");
             hasBeenvisited = true;
         }
 
@@ -70,14 +70,6 @@ public class Room {
             this.east = east;
             east.setWest(this);
         }
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public boolean hasNorth(){

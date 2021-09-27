@@ -7,15 +7,15 @@ public class Map {
         map = new Room[9];
 
         //Creating the room objects
-        map[0] = new Room("Room1", "empty");
-        map[1] = new Room("Room2", "empty");
-        map[2] = new Room("Room3", "empty");
-        map[3] = new Room("Room4", "empty");
-        map[4] = new Room("Room5", "treasure room");
-        map[5] = new Room("Room6", "empty");
-        map[6] = new Room("Room7", "empty");
-        map[7] = new Room("Room8", "empty");
-        map[8] = new Room("Room9", "empty");
+        map[0] = new Room("The basement", "It is pretty dark and scary in here...");
+        map[1] = new Room("Room 007", "Maybe there is something of use in here?");
+        map[2] = new Room("Maybe", "Is this even a room?");
+        map[3] = new Room("The dungeon", "This is not a fun room to be in...");
+        map[4] = new Room("The magical room", "Looks like there is something valuable could be in here");
+        map[5] = new Room("The laboratory", "Be careful, you could harm yourself");
+        map[6] = new Room("The bad room", "It does not feel very nice to be in here");
+        map[7] = new Room("The red room", "Alot of whips everywhere");
+        map[8] = new Room("The 'magical-ish room'", "Is this what you really think it is?");
 
         //Connected the rooms.
         //Connected room1 with room2 and room4

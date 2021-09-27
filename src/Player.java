@@ -3,7 +3,7 @@ public class Player {
     private String playerName;
     private boolean position;
     private int HP;
-    private int maxHP;
+    private int maxHP = 5;
     private Room currentRoom;
 
 

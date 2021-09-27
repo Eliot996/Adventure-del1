@@ -10,10 +10,10 @@ public class Adventure {
         mapOfGame = new Map();
         player = new Player();
         player.setCurrentRoom(mapOfGame.getMap()[0]);
+
     }
 
     public void play(){
-        System.out.println(player.getCurrentRoom().getName());
 
         boolean gameActive = true;
         System.out.println("Welcome to the adventure game!");
@@ -24,7 +24,7 @@ public class Adventure {
             String userInput = input.nextLine();
             if(userInput.contains("go ")){ //TODO: change, bug potential. use substring.contains?
                 userInput = userInput.substring(3);
-                System.out.println(goTo(userInput));
+                System.out.println(player.goTo(userInput));
             }
 
             if(userInput.contains("exit")){
