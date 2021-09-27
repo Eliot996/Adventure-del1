@@ -53,19 +53,19 @@ public class Player {
     }
 
     public String goTo(String userInput){
-        if (userInput.equals("north") && getCurrentRoom().hasNorth()){
+        if ((userInput.equals("north") || userInput.equals("n")) && getCurrentRoom().hasNorth()){
             setCurrentRoom(getCurrentRoom().getNorth());
             return getCurrentRoom().getDescription();
         }
-        if(userInput.equals("south") && getCurrentRoom().hasSouth()){
+        if(userInput.equals("south") || userInput.equals("s") && getCurrentRoom().hasSouth()){
             setCurrentRoom(getCurrentRoom().getSouth());
             return getCurrentRoom().getDescription();
         }
-        if(userInput.equals("east") && getCurrentRoom().hasEast()){
+        if((userInput.equals("east") || userInput.equals("e")) && getCurrentRoom().hasEast()){
             setCurrentRoom(getCurrentRoom().getEast());
             return getCurrentRoom().getDescription();
         }
-        if(userInput.equals("west") && getCurrentRoom().hasWest()){
+        if((userInput.equals("west") || userInput.equals("w")) && getCurrentRoom().hasWest()){
             setCurrentRoom(getCurrentRoom().getWest());
             return getCurrentRoom().getDescription();
         }
