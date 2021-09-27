@@ -12,17 +12,15 @@ class RoomTest {
         Room room2 = new Room("", "");
         room1.setEast(room2);
 
-        test = room1.check("east");
+        test = room1.hasEast();
 
-        test = test && room2.check("west");
+        test = test && room2.hasWest();
 
-        test = test && !room1.check("west");
+        test = test && !room1.hasWest();
 
-        test = test && !room1.check("south");
+        test = test && !room1.hasSouth();
 
-        test = test && !room1.check("north");
-
-        test = test && !room1.check("hej");
+        test = test && !room1.hasNorth();
 
         assertTrue(test);
     }
