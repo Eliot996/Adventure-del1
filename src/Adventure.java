@@ -22,22 +22,22 @@ public class Adventure {
 
         while(gameActive){
             String userInput = input.nextLine();
-            if(userInput.contains("go ")){ //TODO: change, bug potential. use substring.contains?
+            if(userInput.substring(0, 2).contains("go")){
                 userInput = userInput.substring(3);
                 System.out.println(player.goTo(userInput));
             }
 
-            if(userInput.contains("exit")){
+            if(userInput.substring(0, 4).contains("exit")){
                 System.out.println("Leaving already? :(");
                 System.out.println("Hopefully we'll see each other again :) ");
                 gameActive = false;
             }
 
-            if(userInput.contains("look")){
+            if(userInput.substring(0, 4).contains("look")){
                 System.out.println(look());
             }
 
-            if(userInput.contains("help")){
+            if(userInput.substring(0, 4).contains("help")){
                 System.out.println(helpPlayer());
             }
         }
@@ -50,10 +50,8 @@ public class Adventure {
     public String helpPlayer(){ // Could be done better, but for right now, this works OK.
         return """
                 Here is some help for you. Hopefully this will make your journey easier:
-                1) type 'go north', to go north.
-                2) type 'go south', to go south.
-                3) type 'go east', to go east.
-                4) type 'go west', to go west.
+                1) To move in and out of different rooms, combine 'go' with a direction,
+                   such as north, south, east or west, or simply use the starting letter of the direction.
                 5) type 'look', to get a description of the room you are in.
                 6) type 'exit', to end the game.
                 I wish you the best of luck!
