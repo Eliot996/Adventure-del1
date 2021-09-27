@@ -11,7 +11,7 @@ public class Adventure {
     }
 
     public void buildMap(){
-        //
+        //Creating the room objects and array
         map = new Room[9];
         map[0] = new Room("Room1", "empty");
         map[1] = new Room("Room2", "empty");
@@ -54,7 +54,7 @@ public class Adventure {
         System.out.println("Which direction would you like to go?");
         while(gameActive){
             String userInput = input.nextLine();
-            if(userInput.contains("go ")){ //TODO: change, bug potential.
+            if(userInput.contains("go ")){ //TODO: change, bug potential. use substring.contains?
                 userInput = userInput.substring(3);
                 System.out.println(goTo(userInput));
             }
@@ -68,6 +68,10 @@ public class Adventure {
             if(userInput.contains("look")){
                 System.out.println(look());
 
+            }
+
+            if(userInput.contains("help")){
+                System.out.println(helpPlayer());
             }
             if(userInput.contains(("help"))){
                 System.out.println(helpPlayer());
@@ -93,19 +97,19 @@ public class Adventure {
     }
 
     public String goTo(String userInput){
-        if (userInput.equals("north") && currentRoom.check(userInput)){
+        if (userInput.equals("north") && currentRoom.hasNorth()){
             currentRoom = currentRoom.getNorth();
             return currentRoom.getName();
         }
-        if(userInput.equals("south") && currentRoom.check(userInput)){
+        if(userInput.equals("south") && currentRoom.hasSouth()){
             currentRoom = currentRoom.getSouth();
             return currentRoom.getName();
         }
-        if(userInput.equals("east") && currentRoom.check(userInput)){
+        if(userInput.equals("east") && currentRoom.hasEast()){
             currentRoom = currentRoom.getEast();
             return currentRoom.getName();
         }
-        if(userInput.equals("west") && currentRoom.check(userInput)){
+        if(userInput.equals("west") && currentRoom.hasWest()){
             currentRoom = currentRoom.getWest();
             return currentRoom.getName();
         }

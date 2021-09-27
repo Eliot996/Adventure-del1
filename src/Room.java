@@ -2,8 +2,8 @@ public class Room {
 
     private Room north;
     private Room south;
-    private Room west;
     private Room east;
+    private Room west;
     private String name;
     private String description;
 
@@ -72,32 +72,19 @@ public class Room {
         this.description = description;
     }
 
-    public boolean check(String userInput){
-        switch(userInput) {
-            case "north":
-                if (north != null) {
-                    return true;
-                }
-                break;
+    public boolean hasNorth(){
+        return north != null;
+    }
 
-            case "south":
-                if (south != null){
-                    return true;
-                }
-                break;
+    public boolean hasSouth(){
+        return south != null;
+    }
 
-            case "east":
-                if (east != null) {
-                    return true;
-                }
-                break;
+    public boolean hasEast(){
+        return east != null;
+    }
 
-            case "west":
-                if (west != null) {
-                    return true;
-                }
-                break;
-        }
-        return false;
+    public boolean hasWest(){
+        return west != null;
     }
 }
