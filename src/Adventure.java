@@ -16,8 +16,13 @@ public class Adventure {
     public void play(){
 
         boolean gameActive = true;
-        System.out.println("Welcome to the adventure game!");
-        System.out.println("You are curretly in " + player.getCurrentRoom().getDescription());
+        System.out.println(Color.VIBRANT_PURPLE + "Welcome to the adventure game!" +
+                "\nThere are many different rooms to travel between, some rooms are better than others," +
+                " but your main goal should be to find the 'magical room'. " +
+                "\nIf you at any point need assistance, just type 'help' and a useful guide will magically appear" +
+                "\n I wish you the best of luck! See you on the other side \uD83D\uDE09");
+        System.out.println();
+        System.out.println(Color.RESET_COLOR + "You are currently in " + player.getCurrentRoom().getDescription());
         System.out.println("Which direction would you like to go?");
 
         while(gameActive){
@@ -28,7 +33,7 @@ public class Adventure {
             }
 
             if(userInput.substring(0, 4).contains("exit")){
-                System.out.println("Leaving already? :(");
+                System.out.println(Color.BRIGHT_RED + "Leaving already? :(");
                 System.out.println("Hopefully we'll see each other again :) ");
                 gameActive = false;
             }
@@ -48,7 +53,7 @@ public class Adventure {
     }
 
     public String helpPlayer(){ // Could be done better, but for right now, this works OK.
-        return """
+        return Color.BRIGHT_GREEN + """
                 Here is some help for you. Hopefully this will make your journey easier:
                 1) To move in and out of different rooms, combine 'go' with a direction,
                    such as north, south, east or west, or simply use the starting letter of the direction.

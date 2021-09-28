@@ -7,15 +7,20 @@ public class Map {
         map = new Room[9];
 
         //Creating the room objects
-        map[0] = new Room("The basement", "It is pretty dark and scary in here...");
-        map[1] = new Room("Room 007", "Maybe there is something of use in here?");
-        map[2] = new Room("Maybe", "Is this even a room?");
-        map[3] = new Room("The dungeon", "This is not a fun room to be in...");
-        map[4] = new Room("The magical room", "Looks like there is something valuable could be in here");
-        map[5] = new Room("The laboratory", "Be careful, you could harm yourself");
-        map[6] = new Room("The bad room", "It does not feel very nice to be in here");
-        map[7] = new Room("The red room", "Alot of whips everywhere");
-        map[8] = new Room("The 'magical-ish room'", "Is this what you really think it is?");
+        map[0] = new Room("The basement", "This room is dark and smells awful...I would highly recommend you to leave.");
+        map[1] = new Room("Room 007", "The name of this room sounds cool, maybe there is something of use in here?");
+        map[2] = new Room("Maybe", "Is this even a room? Doesn't look like one to me, but you are welcome to explore.");
+        map[3] = new Room("The dungeon", "oh boy... this room looks similar to the basement, but feels way worse to be in here " +
+                "If you didn't like the first room, then you'll definitely hate this room.");
+        map[4] = new Room("The magical room", "Congratulations! You have found the magical room, well done player \uD83D\uDC4F");
+        map[5] = new Room("The laboratory", "There are a bunch of dangerous chemicals scattered around this room. " +
+                "Be careful, you could harm yourself.");
+        map[6] = new Room("The safe room", "Can you believe that? Finally a room that is cozy and safe." +
+                " There are even some food and drinks to give you some well-deserved energy! ❤");
+        map[7] = new Room(Color.BRIGHT_RED + "The red room", "This room is full of torture devices and items that could be of use " +
+                "\uD83D\uDE0F");
+        map[8] = new Room(Color.RESET_COLOR + "The 'magical-ish room'", "Looks like you've found the 'magical room', " +
+                "but something seems totally off...\uD83D\uDE1F");
 
         //Connected the rooms.
         //Connected room1 with room2 and room4
