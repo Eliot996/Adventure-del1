@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 public class Adventure {
 
-    private Map mapOfGame;
-    private Player player;
+    private final Map mapOfGame;
+    private final Player player;
     Scanner input = new Scanner(System.in);
 
     public Adventure(){
@@ -26,23 +26,23 @@ public class Adventure {
         System.out.println("Which direction would you like to go?");
 
         while(gameActive){
-            String userInput = input.nextLine();
-            if(userInput.substring(0, 2).contains("go")){
+            String userInput = input.nextLine().trim().toLowerCase();
+            if(userInput.startsWith("go")){
                 userInput = userInput.substring(3);
                 System.out.println(player.goTo(userInput));
             }
 
-            if(userInput.substring(0, 4).contains("exit")){
+            if(userInput.startsWith("exit")){
                 System.out.println(Color.BRIGHT_RED + "Leaving already? :(");
                 System.out.println("Hopefully we'll see each other again :) ");
                 gameActive = false;
             }
 
-            if(userInput.substring(0, 4).contains("look")){
+            if(userInput.startsWith("look")){
                 System.out.println(look());
             }
 
-            if(userInput.substring(0, 4).contains("help")){
+            if(userInput.startsWith("help")){
                 System.out.println(helpPlayer());
             }
         }

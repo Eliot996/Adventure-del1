@@ -4,8 +4,8 @@ public class Room {
     private Room south;
     private Room east;
     private Room west;
-    private String name;
-    private String description;
+    private final String name;
+    private final String description;
     private boolean hasBeenvisited;
 
     public Room(String name, String description){

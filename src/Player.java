@@ -1,7 +1,6 @@
 public class Player {
 
     private String playerName;
-    private boolean position;
     private int HP;
     private int maxHP = 5;
     private Room currentRoom;
@@ -12,20 +11,42 @@ public class Player {
 
     }
 
+    public String goTo(String userInput){
+        if ((userInput.equals("north") || userInput.equals("n")) && getCurrentRoom().hasNorth()){
+            setCurrentRoom(getCurrentRoom().getNorth());
+            return getCurrentRoom().getDescription();
+        }
+        if(userInput.equals("south") || userInput.equals("s") && getCurrentRoom().hasSouth()){
+            setCurrentRoom(getCurrentRoom().getSouth());
+            return getCurrentRoom().getDescription();
+        }
+        if((userInput.equals("east") || userInput.equals("e")) && getCurrentRoom().hasEast()){
+            setCurrentRoom(getCurrentRoom().getEast());
+            return getCurrentRoom().getDescription();
+        }
+        if((userInput.equals("west") || userInput.equals("w")) && getCurrentRoom().hasWest()){
+            setCurrentRoom(getCurrentRoom().getWest());
+            return getCurrentRoom().getDescription();
+        }
+        return "You cannot go that direction in this room";
+    }
+
+    // TODO: add info to getInfo
+    public String getInfo(){
+        return null;
+    }
+
+    //placeholder TODO: add inventory to player
+    public String getInventory(){
+        return null;
+    }
+
     public String getPlayerName() {
         return playerName;
     }
 
     public void setPlayerName(String playerName) {
         this.playerName = playerName;
-    }
-
-    public boolean isPosition() {
-        return position;
-    }
-
-    public void setPosition(boolean position) {
-        this.position = position;
     }
 
     public int getHP() {
@@ -50,25 +71,5 @@ public class Player {
 
     public Room getCurrentRoom() {
         return currentRoom;
-    }
-
-    public String goTo(String userInput){
-        if ((userInput.equals("north") || userInput.equals("n")) && getCurrentRoom().hasNorth()){
-            setCurrentRoom(getCurrentRoom().getNorth());
-            return getCurrentRoom().getDescription();
-        }
-        if(userInput.equals("south") || userInput.equals("s") && getCurrentRoom().hasSouth()){
-            setCurrentRoom(getCurrentRoom().getSouth());
-            return getCurrentRoom().getDescription();
-        }
-        if((userInput.equals("east") || userInput.equals("e")) && getCurrentRoom().hasEast()){
-            setCurrentRoom(getCurrentRoom().getEast());
-            return getCurrentRoom().getDescription();
-        }
-        if((userInput.equals("west") || userInput.equals("w")) && getCurrentRoom().hasWest()){
-            setCurrentRoom(getCurrentRoom().getWest());
-            return getCurrentRoom().getDescription();
-        }
-        return "You cannot go that direction in this room";
     }
 }
